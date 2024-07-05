@@ -8,7 +8,7 @@
 * Data can be added, edited, or deleted through modals on actions taken inside the application.
 * Data will persist between sessions. To reset, please clear your local storage.
 * Table headers are sticky. New items appear at the bottom of the list. Scroll inside table to view more.
-* Click on the headers to sort the table.
+* Click on the table headers to filter/sort the table in the order you wish.
 * Use the dropdowns to filter the data.
 * Click the checkboxes to select tasks for bulk actions.
 * Click the buttons to view, edit, or delete a task.

@@ -40,7 +40,7 @@ export const DataTable = ({ tableData: data, tableColumns }: DataTableProps) => 
         <div className="instructions">
         <ul>
           <li>Table headers are sticky. New items appear at the bottom of the list. Scroll inside table to view more.</li>
-          <li>Click on the headers to sort the table.</li>
+          <li>Click on the table headers to filter/sort the table in the order you wish.</li>
           <li>Use the dropdowns to filter the data.</li>
           <li>Click the checkboxes to select tasks for bulk actions.</li>
           <li>Click the buttons to view, edit, or delete a task.</li>
