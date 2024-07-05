@@ -48,7 +48,7 @@ function useDataTable(initData: any){
     }
     function handleAddEditTask(formData : any, formAction: string){
         const dateCreated = new Date().toISOString().substr(0, 19).replace("T", " ");
-        const dateCompleted = parseInt(formData.task_status) === 1 ? dateCreated : "";
+        const dateCompleted = Number(formData.task_status) === 1 ? dateCreated : "";
         let newestId = 0;
         const newTableData: any[] = [];
         data.map((row: {[key: string]: string | number | null}) => {
@@ -56,10 +56,10 @@ function useDataTable(initData: any){
                 newestId = row.id as number;
             }
             if(formAction === "edit" && Number(row.id) === Number(formData.id)){
-                row.task_name = formData.task_name;
+                row.task_name = formData.task_name && formData.task_name.replace(/ /g,'') !== "" && formData.task_name.replace(/ /g,'').length > 0 ? formData.task_name : "Task Item #"+row.id;
                 row.task_description = formData.task_description;
-                row.task_status = parseInt(formData.task_status);
-                row.date_completed = parseInt(formData.task_status) === 1 ? dateCreated : "";
+                row.task_status = Number(formData.task_status);
+                row.date_completed = Number(formData.task_status) === 1 ? dateCreated : "";
             }
             newTableData.push(row);
             return null;
@@ -67,9 +67,9 @@ function useDataTable(initData: any){
         if(formAction === "add"){
             const thisNewData = {
                 id: newestId + 1,
-                task_name: formData.task_name,
+                task_name: formData.task_name && formData.task_name.replace(/ /g,'') !== "" && formData.task_name.replace(/ /g,'').length > 0 ? formData.task_name : "Task Item #"+(newestId + 1),
                 task_description: formData.task_description,
-                task_status: parseInt(formData.task_status),
+                task_status: Number(formData.task_status),
                 date_created: dateCreated,
                 date_completed: dateCompleted
             };

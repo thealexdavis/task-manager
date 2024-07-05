@@ -16,7 +16,7 @@ function AddData({ handleBulkAction, handleAddEditTask, bulkActions }: BulkActio
     return(
         <div className="btns_row">
         <button className="btn wider blue" onClick={addTask}>Add New Task</button>
-        <Modal confirmButton={"Add Task"} formAction={"add"} isOpen={isOpen} toggle={toggle} handleBulkAction={handleBulkAction} handleAddEditTask={handleAddEditTask} bulkActions={bulkActions} message="Please fill out the form below to add a new task." tableData={[]} formData={[{type: "text",name: "task_name",label: "Task Name", default: ""},{type: "textarea",name: "task_description",label: "Task Description", default: ""},{type: "select",name: "task_status",label: "Status", default: 2}]}></Modal>
+        <Modal confirmButton={"Add Task"} formAction={"add"} isOpen={isOpen} toggle={toggle} handleBulkAction={handleBulkAction} handleAddEditTask={handleAddEditTask} bulkActions={bulkActions} message="Please fill out the form below to add a new task." tableData={[]} formData={[{type: "text",name: "task_name",label: "Task Name (if left empty, will default to the newest index number)", default: ""},{type: "textarea",name: "task_description",label: "Task Description", default: ""},{type: "select",name: "task_status",label: "Status", default: 2}]}></Modal>
         </div>
     )
 }
