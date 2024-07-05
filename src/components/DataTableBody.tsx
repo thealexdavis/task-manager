@@ -31,12 +31,12 @@ function DataTableBody({ tableColumns, data, toggleCheckedState, bulkActions, ha
     }
     return (
         <tbody>
-                <Modal confirmButton={"Save"} id={targetId} formAction={"edit"} isOpen={isOpen} toggle={toggle} handleBulkAction={handleBulkAction} handleAddEditTask={handleAddEditTask} bulkActions={bulkActions} message="View and edit any details you'd like. Click Save to save changes." tableData={data} formData={[{type: "text",name: "task_name",label: "Task Name", default: defaultData ? defaultData.task_name : ""},{type: "textarea",name: "task_description",label: "Task Description", default: defaultData ? defaultData.task_description : ""},{type: "select",name: "task_status",label: "Status", default: defaultData ? defaultData.task_status : ""}]}></Modal>
+                <Modal confirmButton={"Save"} id={targetId} formAction={"edit"} isOpen={isOpen} toggle={toggle} handleBulkAction={handleBulkAction} handleAddEditTask={handleAddEditTask} bulkActions={bulkActions} message="View and edit any details you'd like. Click Save to save changes." tableData={data} formData={[{type: "text",name: "task_name",label: "Task Name", default: defaultData ? defaultData.task_name : ""},{type: "textarea",name: "task_description",label: "Task Description", default: defaultData ? defaultData.task_description : ""},{type: "select",name: "task_status",label: "Status", default: defaultData ? defaultData.task_status : ""},{type: "date",name: "date_created",label: "Task Created On:", default: defaultData ? defaultData.date_created : ""},{type: "date",name: "dated_completed",label: "Task Completed On:", default: defaultData ? defaultData.date_completed : ""}]}></Modal>
                 {data.map((row: {[key: string]: string | number | null}, index) => {
                     return (
                         <tr key={row.id}>
                             {tableColumns.map((column) => {
-                                const cellData = column.slug === "task_status" || (column.slug === "task_status" && !row[column.slug]) ? (row[column.slug] == 2 ? "Complete" : row[column.slug] == 3 ? "Pending" : "Incomplete") : row[column.slug] || "";
+                                const cellData = column.slug === "task_status" || (column.slug === "task_status" && !row[column.slug]) ? (row[column.slug] == 1 ? "Complete" : row[column.slug] == 3 ? "Pending" : "Incomplete") : row[column.slug] || "";
                                 const cellActionValue = data[index].id;
                                 if(column.showInOverview){
                                     if(column.slug == "action"){

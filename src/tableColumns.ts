@@ -31,7 +31,7 @@ export const tableColumns = [
     slug: "task_status",
     sortable: true,
     filterable: true,
-    filterVals: ["All", "Incomplete", "Complete", "Pending"],
+    filterVals: ["All", "Complete", "Incomplete", "Pending"],
     showTitle: true,
     showInOverview: true
   },

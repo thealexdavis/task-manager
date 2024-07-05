@@ -31,8 +31,8 @@ function BulkActions({ bulkActions, handleBulkAction, handleAddEditTask, data }:
             <label htmlFor="bulk_action">Bulk Action:</label>
             <select name="bulk_action" id="bulk_action">
                 <option value="0">Select Bulk Action</option>
-                <option value="1">Mark Incomplete</option>
-                <option value="2">Mark Complete</option>
+                <option value="2">Mark Incomplete</option>
+                <option value="1">Mark Complete</option>
                 <option value="3">Mark Pending</option>
                 <option value="4">Delete</option>
             </select>

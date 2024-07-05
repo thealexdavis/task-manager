@@ -97,6 +97,14 @@ function Modal({ isOpen, toggle, message, bulkActions, tableData, handleBulkActi
                     </div>
                   );
                 }
+                if(formElement.type === "date" && formElement.default){
+                  return (
+                    <div>
+                      <label htmlFor={formElement.name}>{formElement.label}</label>
+                      <p>{formElement.default ? formElement.default.toString() : ""}</p>
+                    </div>
+                  );
+                }
                 if(!deleteConfirm && formElement.type === "select"){
                   return (
                     <div>

@@ -10,7 +10,7 @@ function useDataTable(initData: any){
                 if((a as any)[slug] === null) return 1;
                 if((b as any)[slug] === null) return -1;
                 return (
-                    (a as any)[slug].toString().localeCompare((b as any)[slug].toString(), undefined, {numeric: true}) * (sortOrderName === "desc" ? -1 : 1)
+                    (a as any)[slug].toString().toLowerCase().localeCompare((b as any)[slug].toString().toLowerCase(), undefined, {numeric: true}) * (sortOrderName === "desc" ? -1 : 1)
                 );
             });
             setData(sortedData);

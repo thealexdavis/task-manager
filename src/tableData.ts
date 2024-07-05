@@ -5,7 +5,7 @@ export const tableData = localStorage.getItem("taskData") ? JSON.parse(localStor
     task_description: "Z Task Description",
     task_status: 2,
     date_created: "2024-06-15 12:00:00",
-    date_completed: "2024-06-29 12:00:00"
+    date_completed: false
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ export const tableData = localStorage.getItem("taskData") ? JSON.parse(localStor
     task_description: "X Task Description",
     task_status: 1,
     date_created: "2024-06-05 12:00:00",
-    date_completed: 0
+    date_completed: "2024-06-29 12:00:00"
   },
   {
     id: 3,
@@ -29,7 +29,7 @@ export const tableData = localStorage.getItem("taskData") ? JSON.parse(localStor
     task_description: "6 Task Description",
     task_status: 1,
     date_created: "2024-06-23 12:00:00",
-    date_completed: "2024-06-29 14:00:00"
+    date_completed: "2024-06-29 12:00:00"
   },
   {
     id: 5,
