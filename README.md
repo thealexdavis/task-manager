@@ -2,7 +2,8 @@
 * Node version 18.19.1 or above
 * NPM 10.2.4 or above
 
-# Dev Notes
+## Dev Notes
+* This was built on a Mac, tested on Chrome, Safari, and Firefox.
 * On first load, default data will go into the task manager table.
 * Data can be added, edited, or deleted through modals on actions taken inside the application.
 * Data will persist between sessions. To reset, please clear your local storage.
@@ -11,6 +12,18 @@
 * Use the dropdowns to filter the data.
 * Click the checkboxes to select tasks for bulk actions.
 * Click the buttons to view, edit, or delete a task.
+
+## Instructions
+1: Open up command line or Terminal
+2: Clone this repository to your local machine using HTTPS or SSH
+    *Example: git clone git@github.com:thealexdavis/datanomix-task-manager.git
+3: Change into the cloned directory
+    *Example: cd datanomix-task-manager
+4: Run npm install to install all necessary packages
+    *Example: npm install
+5: Once complete, if successful, you may run the start command to run the application in development mode, or the build command to produce the application into the build directory for deployment
+    *Example 1: npm start
+    *Example 2: npm run build
 
 ## Available Scripts
 
