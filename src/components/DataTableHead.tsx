@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { TableDataTypes, TableColumnTypes } from "../dataTypes";
+import { TableColumnTypes } from "../dataTypes";
 
 interface DataTableHeadProps {
     tableColumns: TableColumnTypes;
@@ -19,12 +19,13 @@ function DataTableHead({ tableColumns, handleSort }: DataTableHeadProps) {
         <thead>
             <tr>
                 {tableColumns.map(({slug, sortable, title, showTitle, showInOverview}) => {
-                    const columnClass = sortable ? sortSlug == slug && columnDir == "asc" ? "up-arrow" : sortSlug == slug && columnDir == "desc" ? "down-arrow" : "" : "";
+                    const columnClass = sortable ? sortSlug === slug && columnDir === "asc" ? "up-arrow" : sortSlug === slug && columnDir === "desc" ? "down-arrow" : "" : "";
                     if(showInOverview){
                         return (
                             <th key={slug} className={columnClass} onClick={sortable ? () => sortColumn(slug) : () => null}>{showTitle ? title : ""}</th>
                         );
                     }
+                    return null;
                 })}
             </tr>
         </thead>

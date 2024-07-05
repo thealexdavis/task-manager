@@ -17,26 +17,23 @@ function useDataTable(initData: any){
         }
     }
     function handleFilter(slug: string, value: number){
-        const filteredData: any[] = [];
-        {filterData.map((row: {[key: string]: string | number | null}) => {
-            if(row[slug] === value || value === 0){
-                filteredData.push(row);
-            }
-        })}
+        const filteredData: any[] = filterData.filter((row: {[key: string]: string | number | null}) => {
+            return row[slug] === value || value === 0;
+        });
         setData(filteredData);
     }
     function handleBulkAction(itemIds: number[], action: number){
         const bulkData: any[] = [];
         const thisDate = new Date().toISOString().substr(0, 19).replace("T", " ");
-        {data.map((row: {[key: string]: string | number | null}, index: number) => {
-            if(action === 4){
-                if(!itemIds.includes(data[index].id)){
+        filterData.forEach((row: {[key: string]: string | number | null}, index: number) => {
+            if(Number(action) === 4){
+                if(!itemIds.includes(filterData[index].id)){
                     bulkData.push(row);
                 }
-            } else if(action >= 1){
-                if(itemIds.includes(data[index].id)){
-                    row.task_status = action;
-                    if(action == 2){
+            } else if(Number(action) >= 1){
+                if(itemIds.includes(filterData[index].id)){
+                    row.task_status = Number(action);
+                    if(Number(action) === 1){
                         row.date_completed = thisDate;
                     } else {
                         row.date_completed = 0;
@@ -44,31 +41,30 @@ function useDataTable(initData: any){
                 }
                 bulkData.push(row);
             }
-        })}
+        });
         setData(bulkData);
         setFilterData(bulkData);
         localStorage.setItem("taskData", JSON.stringify(bulkData));
     }
     function handleAddEditTask(formData : any, formAction: string){
         const dateCreated = new Date().toISOString().substr(0, 19).replace("T", " ");
-        const dateCompleted = parseInt(formData.task_status) === 2 ? dateCreated : "";
+        const dateCompleted = parseInt(formData.task_status) === 1 ? dateCreated : "";
         let newestId = 0;
         const newTableData: any[] = [];
-        {data.map((row: {[key: string]: string | number | null}) => {
-            if(formAction == "add"){
-                if(row.id && (row.id as number) > newestId){
-                    newestId = row.id as number;
-                }
+        data.map((row: {[key: string]: string | number | null}) => {
+            if(formAction === "add" && row.id && (row.id as number) > newestId){
+                newestId = row.id as number;
             }
-            if(formAction == "edit" && row.id == formData.id){
+            if(formAction === "edit" && Number(row.id) === Number(formData.id)){
                 row.task_name = formData.task_name;
                 row.task_description = formData.task_description;
                 row.task_status = parseInt(formData.task_status);
-                row.date_completed = parseInt(formData.task_status) === 2 ? dateCreated : "";
+                row.date_completed = parseInt(formData.task_status) === 1 ? dateCreated : "";
             }
             newTableData.push(row);
-        })}
-        if(formAction == "add"){
+            return null;
+        });
+        if(formAction === "add"){
             const thisNewData = {
                 id: newestId + 1,
                 task_name: formData.task_name,

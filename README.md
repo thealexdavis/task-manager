@@ -3,6 +3,9 @@
 * NPM 10.2.4 or above
 
 # Dev Notes
+* On first load, default data will go into the task manager table.
+* Data can be added, edited, or deleted through modals on actions taken inside the application.
+* Data will persist between sessions. To reset, please clear your local storage.
 * Table headers are sticky. New items appear at the bottom of the list. Scroll inside table to view more.
 * Click on the headers to sort the table.
 * Use the dropdowns to filter the data.

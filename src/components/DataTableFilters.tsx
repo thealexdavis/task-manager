@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { TableDataTypes, TableColumnTypes } from "../dataTypes";
+import { TableColumnTypes } from "../dataTypes";
 
 interface DataTableFiltersProps {
   tableColumns: TableColumnTypes;

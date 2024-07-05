@@ -11,17 +11,23 @@ interface BulkActionProps {
 }
 
 function BulkActions({ bulkActions, handleBulkAction, handleAddEditTask, data }: BulkActionProps) {
-    const { isOpen, toggle, message } = useModal();
+    const { isOpen, toggle } = useModal();
       function bulkActionSubmitHandler(event: React.FormEvent<HTMLFormElement>){
         event.preventDefault();
         const bulkActionForm = event.currentTarget;
         const bulkFormElements = bulkActionForm.elements as typeof bulkActionForm.elements & {
             bulk_action: {value: string}
         }
-        if(parseInt(bulkFormElements.bulk_action.value) == 4){
-            toggle();
-        } else {
-            handleBulkAction(bulkActions.checkedIds, bulkFormElements.bulk_action.value);
+        if(Number(bulkFormElements.bulk_action.value) > 0 && Number(bulkActions.checkedIds.length) > 0){
+          if(parseInt(bulkFormElements.bulk_action.value) === 4){
+              toggle();
+          } else {
+              handleBulkAction(bulkActions.checkedIds, bulkFormElements.bulk_action.value);
+          }
+        } else if(Number(bulkFormElements.bulk_action.value) === 0){
+          alert("Please select a bulk action to perform.");
+        } else if(Number(bulkActions.checkedIds.length) === 0){
+          alert("Check select at least one task by the checkmark in the first column to perform a bulk action.");
         }
       }
     return (

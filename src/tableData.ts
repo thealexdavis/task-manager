@@ -5,7 +5,7 @@ export const tableData = localStorage.getItem("taskData") ? JSON.parse(localStor
     task_description: "Z Task Description",
     task_status: 2,
     date_created: "2024-06-15 12:00:00",
-    date_completed: false
+    date_completed: 0
   },
   {
     id: 2,
