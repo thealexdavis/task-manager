@@ -15,7 +15,7 @@
 
 ## Instructions
 1: Open up command line or Terminal\
-2: Clone this repository to your local machine using HTTPS or SSH\
+2: Clone this repository to your local machine using HTTPS or SSH (Note, you may also download the zipped version of this instead through the Code dropdown)\
     *Example: git clone git@github.com:thealexdavis/task-manager.git\
 3: Change into the cloned directory\
     *Example: cd task-manager\
