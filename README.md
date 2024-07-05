@@ -16,9 +16,9 @@
 ## Instructions
 1: Open up command line or Terminal\
 2: Clone this repository to your local machine using HTTPS or SSH\
-    *Example: git clone git@github.com:thealexdavis/datanomix-task-manager.git\
+    *Example: git clone git@github.com:thealexdavis/task-manager.git\
 3: Change into the cloned directory\
-    *Example: cd datanomix-task-manager\
+    *Example: cd task-manager\
 4: Run npm install to install all necessary packages\
     *Example: npm install\
 5: Once complete, if successful, you may run the start command to run the application in development mode, or the build command to produce the application into the build directory for deployment\
