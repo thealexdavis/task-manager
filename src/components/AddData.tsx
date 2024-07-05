@@ -1,0 +1,24 @@
+import React from "react";
+import Modal from "./Modal";
+import useModal from "../hooks/useModal";
+import { BulkActionTypes } from "../dataTypes";
+
+interface BulkActionProps {
+    handleBulkAction: any;
+    handleAddEditTask: any;
+    bulkActions: BulkActionTypes;
+}
+function AddData({ handleBulkAction, handleAddEditTask, bulkActions }: BulkActionProps) {
+    const { isOpen, toggle } = useModal();
+    function addTask(){
+        toggle();
+    }
+    return(
+        <div className="btns_row">
+        <button className="btn wider blue" onClick={addTask}>Add New Task</button>
+        <Modal confirmButton={"Add Task"} formAction={"add"} isOpen={isOpen} toggle={toggle} handleBulkAction={handleBulkAction} handleAddEditTask={handleAddEditTask} bulkActions={bulkActions} message="Please fill out the form below to add a new task." tableData={[]} formData={[{type: "text",name: "task_name",label: "Task Name", default: ""},{type: "textarea",name: "task_description",label: "Task Description", default: ""},{type: "select",name: "task_status",label: "Status", default: 1}]}></Modal>
+        </div>
+    )
+}
+
+export default AddData;
