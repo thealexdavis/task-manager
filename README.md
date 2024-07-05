@@ -23,7 +23,7 @@
     *Example: npm install\
 5: Once complete, if successful, you may run the start command to run the application in development mode, or the build command to produce the application into the build directory for deployment\
     *Example 1: npm start\
-    *Example 2: npm run build\
+    *Example 2: npm run build
 
 ## Available Scripts
 
