@@ -6,11 +6,13 @@ interface DataTableFiltersProps {
 }
 
 function DataTableFilters({ tableColumns, handleFilter }: DataTableFiltersProps) {
+    // Goes back to useDataTable hooks file
     function filterChange(slug: string, value: number){
         handleFilter(slug, value);
     }
   return (
     <ul>
+      {/* If filters exist within table data being retrieved, will render out below in unordered list. */}
       {tableColumns.map(({ title, slug, sortable, filterable, filterVals }, index) => {
         if (filterable) {
           return (

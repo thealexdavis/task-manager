@@ -32,6 +32,7 @@ function BulkActions({ bulkActions, handleBulkAction, handleAddEditTask, data }:
       }
     return (
       <div className="bulk_actions_row">
+        {/* Future updates would be to move modal to the DataTable component, only needing to include it once. */}
         <Modal confirmButton={"Delete"} formAction={"delete"} isOpen={isOpen} toggle={toggle} handleBulkAction={handleBulkAction} handleAddEditTask={handleAddEditTask} bulkActions={bulkActions} message="Are you sure you want to delete the following tasks?" tableData={data} formData={[]}></Modal>
         <form className="bulk_action_form" id="bulk_action_form" onSubmit={bulkActionSubmitHandler}>
             <label htmlFor="bulk_action">Bulk Action:</label>

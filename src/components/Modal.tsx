@@ -61,6 +61,7 @@ function Modal({ isOpen, toggle, message, bulkActions, tableData, handleBulkActi
         {isOpen && (
           <div className="modal-overlay" onClick={closeModal}>
             <div onClick={(e) => e.stopPropagation()} className="modal-box">
+              {/* Form onsubmit event is handled by state inhereted from parent component */}
               <form onSubmit={modalFormSubmitHandler}>
                 <input type="hidden" name="id" defaultValue={id ? id : 0} />
                 {(deleteConfirm || (formAction === "delete" && !deleteConfirm)) && 
@@ -69,6 +70,7 @@ function Modal({ isOpen, toggle, message, bulkActions, tableData, handleBulkActi
                 {deleteConfirm && <p className="normal"><b>Task Name: </b>{taskTitle}</p> }
               </div>
               }
+              {/* If this is a delete action, will show name of each task being deleted. */}
               {formAction === "delete" && tableData.map((row: {[key: string]: string | number | null}, index) => {
                 if(bulkActions.checkedIds.includes(tableData[index].id)){
                   return (
@@ -79,6 +81,7 @@ function Modal({ isOpen, toggle, message, bulkActions, tableData, handleBulkActi
                 }
                 return null;
               })}
+              {/* If adding or editing, form will appear looping through data inhereted from parent component. */}
               {formData.length > 0 && formData.map((formElement: {type: string, name: string, label: string, default: string | number | boolean}, index) => {
                 if(formElement.type === "text"){
                   return (

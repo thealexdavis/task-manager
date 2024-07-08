@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { TableDataTypes, TableColumnTypes, BulkActionTypes, CheckedIds } from "../dataTypes";
+import { TableDataTypes, TableColumnTypes, BulkActionTypes } from "../dataTypes";
 import DataTableHead from "./DataTableHead";
 import DataTableBody from "./DataTableBody";
 import DataTableFilters from "./DataTableFilters";
@@ -19,11 +19,7 @@ export const DataTable = ({ tableData: data, tableColumns }: DataTableProps) => 
     tempId: null,
     action: "",
   });
-  const [checkedIdArray, setCheckedIdArray] = useState<CheckedIds>({
-    id: 0
-  });
   const toggleCheckedState = (checked: boolean, value: number) => {
-    setCheckedIdArray({ id: value });
     const checkedIdFinalArray = bulkActions.checkedIds;
     if(checked){
       checkedIdFinalArray.push(value);
