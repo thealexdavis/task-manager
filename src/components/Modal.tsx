@@ -74,7 +74,7 @@ function Modal({ isOpen, toggle, message, bulkActions, tableData, handleBulkActi
               {formAction === "delete" && tableData.map((row: {[key: string]: string | number | null}, index) => {
                 if(bulkActions.checkedIds.includes(tableData[index].id)){
                   return (
-                    <p>
+                    <p key={"delete_item_"+index}>
                       <b>Task Name:</b> {row.task_name}
                     </p>
                   );
